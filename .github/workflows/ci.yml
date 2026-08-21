@@ -72,13 +72,11 @@ jobs:
         run: docker build --target runtime -t home-lab-api:${{ github.sha }} .
 
       - name: Setup Trivy
-        uses: aquasecurity/setup-trivy@v0.2.2
-        with:
-          image-ref: home-lab-api:${{ github.sha }}
-          format: table
-          severity: HIGH,CRITICAL
-          exit-code: "1"
-          ignore-unfixed: true
+        uses: aquasecurity/setup-trivy@v0
+
+      - name: Run Trivy vulnerability scanner
+        run: |
+          trivy image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed home-lab-api:${{ github.sha }}
 
   push:
     name: Push image to ECR
