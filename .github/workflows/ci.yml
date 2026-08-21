@@ -71,8 +71,8 @@ jobs:
       - name: Build image
         run: docker build --target runtime -t home-lab-api:${{ github.sha }} .
 
-      - name: Scan image
-        uses: aquasecurity/trivy-action@v0.28.0
+      - name: Setup Trivy
+        uses: aquasecurity/setup-trivy@v0.2.2
         with:
           image-ref: home-lab-api:${{ github.sha }}
           format: table
