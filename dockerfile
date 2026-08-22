@@ -10,7 +10,7 @@ COPY pyproject.toml .
 # Install dependencies into a wheels directory
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /code/wheels -e ".[dev]"
 
-FROM python:3.14-slim
+FROM python:3.14-slim AS runtime
 
 WORKDIR /code
 
