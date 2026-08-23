@@ -76,8 +76,7 @@ jobs:
 
       - name: Run Trivy vulnerability scanner
         run: |
-          #trivy image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed home-lab-api:${{ github.sha }}
-	  trivy image --severity CRITICAL --exit-code 1 --ignore-unfixed home-lab-api:${{ github.sha }}
+          trivy image --severity CRITICAL --exit-code 1 --ignore-unfixed home-lab-api:${{ github.sha }}
 
   push:
     name: Push image to ECR
