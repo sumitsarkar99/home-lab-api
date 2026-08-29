@@ -26,6 +26,8 @@ COPY ./app /code/app
 
 # Copy application files
 COPY ./app /code/app1
+# Copy application files
+COPY ./app /code/app2
 
 EXPOSE 8000
 
