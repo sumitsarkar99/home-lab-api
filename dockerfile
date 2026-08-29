@@ -24,6 +24,9 @@ RUN pip install --no-cache-dir /images/wheels/* && rm -rf /images/wheels
 # Copy application files
 COPY ./app /code/app
 
+# Copy application files
+COPY ./app /code/app1
+
 EXPOSE 8000
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
