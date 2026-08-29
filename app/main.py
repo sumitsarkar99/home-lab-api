@@ -55,3 +55,4 @@ def create_item(payload: ItemCreate, db: Session = Depends(get_db)):
 @app.get("/items", response_model=list[ItemResponse])
 def list_items(db: Session = Depends(get_db)):
     return db.query(Item).order_by(Item.id).all()
+print('status ok')
